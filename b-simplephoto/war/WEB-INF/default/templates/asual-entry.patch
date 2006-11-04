@@ -1,0 +1,13 @@
+Index: asual-entry.vm
+*** /Users/tstone/Projects/blojsom-2.0/themes/asual/templates/asual-entry.vm Base (1.9)
+--- /Users/tstone/Projects/blojsom-2.0/themes/asual/templates/asual-entry.vm Locally Modified (Based On 1.9)
+***************
+*** 9,14 ****
+--- 9,15 ----
+  								#if($BLOJSOM_PERMALINK && $BLOJSOM_BLOG.getLinearNavigationEnabled()) #if ($BLOJSOM_PERMALINK_PREVIOUS_ENTRY) #friendlyPermalink($BLOJSOM_PERMALINK_PREVIOUS_ENTRY)<a href="$entryLink">&laquo;&nbsp;$!BLOJSOM_PERMALINK_PREVIOUS_ENTRY.getTitle()</a> | #end <a href="$BLOJSOM_BLOG.getBlogURL()">Main</a> #if ($BLOJSOM_PERMALINK_NEXT_ENTRY) | #friendlyPermalink($BLOJSOM_PERMALINK_NEXT_ENTRY) <a href="$entryLink">$!BLOJSOM_PERMALINK_NEXT_ENTRY.getTitle()&nbsp;&raquo;</a>#end#end
+  
+  								<div class="post">
++                                                                         #parse( "photo-album.vm" )
+  									$entry.getDescription()
+                                      #TechnoratiTags($entry)
+  								</div>
