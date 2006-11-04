@@ -1,0 +1,18 @@
+Index: asual-head.vm
+*** /Users/tstone/Projects/blojsom-2.0/themes/asual/templates/asual-head.vm Base (1.5)
+--- /Users/tstone/Projects/blojsom-2.0/themes/asual/templates/asual-head.vm Locally Modified (Based On 1.5)
+***************
+*** 14,17 ****
+--- 14,25 ----
+  		<link rel="stylesheet" rev="stylesheet" href="$BLOJSOM_BLOG.getBlogBaseURL()/resources/$BLOJSOM_USER/asual.css" type="text/css" media="screen" />
+  		<link rel="stylesheet" rev="stylesheet" href="$BLOJSOM_BLOG.getBlogBaseURL()/resources/$BLOJSOM_USER/asual-fixed.css" title="fixed" type="text/css" media="screen" />
+  		<link rel="stylesheet" rev="stylesheet" href="$BLOJSOM_BLOG.getBlogBaseURL()/resources/$BLOJSOM_USER/asual-elastic.css" title="elastic" type="text/css" media="screen" />
++ 
++                 #if($BLOJSOM_PERMALINK && $BLOJSOM_PLUGIN_LIST_TOOL.get($BLOJSOM_ENTRIES,0).getMetaData().get("photo-album"))
++                     <link rel="stylesheet" rev="stylesheet" href="$BLOJSOM_BLOG.getBlogBaseURL()/resources/$BLOJSOM_USER/simple-photo-album.css" type="text/css" media="screen" />
++                     <script type="text/javascript" src="$BLOJSOM_BLOG.getBlogBaseURL()/resources/$BLOJSOM_USER/simplePhoto.js"></script>
++                 #else
++                     <link rel="stylesheet" rev="stylesheet" href="$BLOJSOM_BLOG.getBlogBaseURL()/resources/$BLOJSOM_USER/simple-photo-thumbnail.css" type="text/css" media="screen" />
++                 #end
++ 		
+  		<script type="text/javascript" src="$BLOJSOM_BLOG.getBlogBaseURL()/resources/$BLOJSOM_USER/asual.js"></script>

@@ -1,0 +1,7 @@
+#set( $list = $entry.getMetaData().get("photo-album"))
+#if(!$BLOJSOM_PERMALINK) 
+    #SimplePhotoGalleryThumbnail($entry)
+#else
+    #SimplePhotoGalleryScript($entry)
+#end
+

@@ -14,7 +14,83 @@ project, or imported into your favorite IDE.
 This will build the default ant target and the binary will be located in the
 resulting dist folder.
 
+==== REQUIREMENTS ==============================================================
+
+* blojsom 2.3x
+  This package is built against v2.32
+
+* ListTool or ExtendedListTool 
+  org.blojsom.plugin.tools.ListToolPlugin
+  org.blojsom.plugin.tools.ExtendedListToolPlugin
+  
+  These classes are available as part of the blojsom addons package:
+  http://prdownloads.sourceforge.net/blojsom/blojsom-2.32-addons.zip?download
+
 ==== INSTALLING THE PLUGIN =====================================================
+
+The installation is based on a default install of blojsom 2.32 using the provided
+asual theme. When necessary, adaptation of files will be noted.
+
+Patch files are provided where necessary.
+
+* Install blojsom-addon-plugins-2.32.jar to /WEB-INF/lib/.
+
+* Install simplephotogalleryplugin-v1.0.jar to /WEB-INF/lib/.
+
+* Add plugin name and plugin class name to plugin.properties 
+  (/WEB-INF/plugin.properties)
+
+  "plugin name" is a short name for the plugin class used in your plugin chain
+
+  ...
+  simple-photo=com.petmystone.blojsom.plugin.SimplePhotoGalleryPlugin  
+  list-tool=org.blojsom.plugin.tools.ListToolPlugin
+  #extended-list-tool=org.blojsom.plugin.tools.ExtendedListToolPlugin
+  ...
+
+* Restart blojsom in your container specific way
+
+* Install provided Velocity, JavaScript, and CSS files
+  Provided as part of the distribution is a stubbed out war directory. Place the
+  files as appropriate:
+
+  /war/WEB-INF/{blog}/templates/
+    asual-head.patch
+    photo-album.vm
+    user-macros.vm
+
+  /war/resources/{blog}/
+    simple-photo-album.css
+    simple-photo-thumbnail.css
+    simpleAlbum.js
+    hidemenu.gif
+    showmenu.gif
+ 
+* Install the provided user-macros.vm and photo-album.vm to 
+  /WEB-INF/{blog}/templates/.
+
+  The provided macros output the necessary HTML and JavaScript to display the
+  photos, thumbnail, pager.
+
+* Patch asual-head.vm and asual-entry.vm
+  
+  Using a patch tool, like patch, makes this easy. Otherwise, review the files
+  and perform manually. Context is provided.
+
+  % cd /path/to/blojsom/WEB-INF/default/templates
+  % patch -p0 < /path/to/asual-entry.patch
+  % patch -p0 < /path/to/asual-head.patch
+
+* Edit your html.blojsom-plugin-chain (/WEB-INF/{blog}/plugin.properties) to use 
+  list-tool and simple-photo. The plugins *must* follow the meta and footnote 
+  plugins. simple-photo must follow list-tool.
+
+  ...
+  html.blojsom-plugin-chain=meta, list-tool, simple-photo, ...
+  ...
+
+* Edit the value of dirname in simplePhoto.js. This should be a URL:
+  http://yourdomain/blojsom/resources/default
 
 
 
