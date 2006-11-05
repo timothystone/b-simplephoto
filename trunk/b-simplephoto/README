@@ -31,11 +31,15 @@ resulting dist folder.
 The installation is based on a default install of blojsom 2.32 using the provided
 asual theme. When necessary, adaptation of files will be noted.
 
+Were you see a "%" this denotes a command prompt. Adapt as necessary to your 
+platform or permission, e.g., "C:>" or "#" (for root). Commands are given as 
+UNIX. Adapt as needed for your platform or program availability.
+
 Patch files are provided where necessary.
 
 * Install blojsom-addon-plugins-2.32.jar to /WEB-INF/lib/.
 
-* Install simplephotogalleryplugin-v1.0.jar to /WEB-INF/lib/.
+* Install simplephotogalleryplugin-1.0FC.jar to /WEB-INF/lib/.
 
 * Add plugin name and plugin class name to plugin.properties 
   (/WEB-INF/plugin.properties)
@@ -72,6 +76,10 @@ Patch files are provided where necessary.
   The provided macros output the necessary HTML and JavaScript to display the
   photos, thumbnail, pager.
 
+  If you have an existing user-macros.vm, append the provided macros
+
+  % cat user-macros.vm >> user-macros.vm
+
 * Patch asual-head.vm and asual-entry.vm
   
   Using a patch tool, like patch, makes this easy. Otherwise, review the files
@@ -89,7 +97,7 @@ Patch files are provided where necessary.
   html.blojsom-plugin-chain=meta, list-tool, simple-photo, ...
   ...
 
-* Edit the value of dirname in simplePhoto.js. This should be a URL:
+* Edit the value of dirname in simplePhoto.js. This should be a full path URL:
   http://yourdomain/blojsom/resources/default
 
 
