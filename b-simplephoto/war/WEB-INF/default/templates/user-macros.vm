@@ -8,7 +8,7 @@
     #if($BLOJSOM_PLUGIN_LIST_TOOL.size($list) > 1 )
         #set($count = 0)
     <div id="remote">
-    <a href="$entryLink" onclick="previousPhoto();return false;">&laquo; prev photo</a>&nbsp;<a href="$entryLink" onclick="nextPhoto();return false;">next photo&raquo;</a>
+    <a href="$entryLink" onclick="previousPhoto();return false;">&laquo;&nbsp;prev photo</a>&nbsp;|&nbsp;<a href="$entryLink" onclick="nextPhoto();return false;">next photo&nbsp;&raquo;</a>
     </div>
     <div id="showHideMenu"><a id="showHideTab" href="$entryLink" onclick="menuSwitch();return false;"><img src="$BLOJSOM_BLOG.getBlogBaseURL()/resources/$BLOJSOM_USER/showmenu.gif" alt="Show Menu" width="11" /></a></div>
     <div id="photo"></div>
@@ -19,7 +19,7 @@
 #if($count == 0)
         gallery[$count].onload = setInitialPhoto;
 #end
-        gallery[$count].src = "$photo";
+        gallery[$count].src = "$BLOJSOM_BLOG.getBlogBaseURL()$photo";
 #set($count = $count + 1)
 #end
         //setPhotoDimensions(document.getElementById("photo"));
@@ -41,7 +41,7 @@
    #if($entry.getMetaData().get("photo-album-thumbnail"))
    #set($thumbnail = $entry.getMetaData().get("photo-album-thumbnail"))
 <div class="thumbnail">
-    <a href="$entryLink" title="View this photo album"><img src="$!thumbnail" alt="thumbnail image from photo gallery" /></a>
+    <a href="$entryLink" title="View this photo album"><img src="$BLOJSOM_BLOG.getBlogBaseURL()$!thumbnail" alt="thumbnail image from photo gallery" /></a>
 </div>
    #end
 #end
