@@ -44,7 +44,7 @@ Patch files are provided where necessary.
 * Add plugin name and plugin class name to plugin.properties 
   (/WEB-INF/plugin.properties)
 
-  "plugin name" is a short name for the plugin class used in your plugin chain
+  plugin-short-name=plugin.class.name
 
   ...
   simple-photo=com.petmystone.blojsom.plugin.SimplePhotoGalleryPlugin  
@@ -56,10 +56,11 @@ Patch files are provided where necessary.
 
 * Install provided Velocity, JavaScript, and CSS files
   Provided as part of the distribution is a stubbed out war directory. Place the
-  files as appropriate:
+  following files as described:
 
   /war/WEB-INF/{blog}/templates/
     asual-head.patch
+    asual-entry.patch
     photo-album.vm
     user-macros.vm
 
@@ -69,6 +70,9 @@ Patch files are provided where necessary.
     simpleAlbum.js
     hidemenu.gif
     showmenu.gif
+
+  /war/resources/{blog}/gates
+    This is a sample album.
  
 * Install the provided user-macros.vm and photo-album.vm to 
   /WEB-INF/{blog}/templates/.
